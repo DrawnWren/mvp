@@ -1,4 +1,5 @@
 var Text = require('./textModel.js');
+var help = require('../config/helpers.js');
 
 //yay middleware
 var findByTitle = (title) => Text.find({title: title});
@@ -13,17 +14,19 @@ var addText = (req, res, next) => {
     Text.find({url: req.body.url}).then( (r) => { 
         //If the url is already in the database, return a trimmed item to be 
         //used on the front end
-        if (r) {
+        if (r.length > 0) {
+            console.log('Found an already existing item', r);
             r = {status: r.status, url: r.url, title: r.title};
             res.json(r);
         } else {
-            return url;
+            return req.body.url;
         }
     }).then( r => {
         //If we didn't find this url in the database already,
         //send the url request, and add a pending entry to the db
         if (r) {
             help.getUrl(r);
+            console.log('Making a new text entry with ', r);
             new Link({url: r, status: 'Loading'}).save()
             .then( d => res.json(d) );
         }
