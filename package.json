@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "start": "node fangu.js",
-    "dev": "nodemon fangu.js"
+    "start": "node server/fangu.js",
+    "dev": "nodemon serve/fangu.js"
   },
   "repository": {
     "type": "git",
