@@ -1,6 +1,7 @@
-angular.module('fangu.analysis')
-    
-    .controller('AnalysisController', ['$scope', function($scope) {
-    $scope.data = {};
-    
-}]);
+var analysis = angular.module('fangu.analysis', []); 
+
+
+analysis.controller('AnalysisController', function($scope, Analyses) {
+    $scope.data = {}; 
+    Analyses.getData().then( (d) => $scope.data = d );
+});

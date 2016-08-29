@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 
 var TextSchema = new mongoose.Schema({
     title: String,

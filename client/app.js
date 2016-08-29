@@ -1,4 +1,4 @@
-var fangu = angular.module('fangu',['ui.router', 'fangu.services']);
+var fangu = angular.module('fangu',['ui.router', 'fangu.services', 'fangu.analysis']);
 
 console.log('Fangu is up!', fangu);
 

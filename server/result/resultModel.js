@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 
 //all you need is a String ... right?
 var ResultSchema = mongoose.Schema({
