@@ -1,5 +1,8 @@
-var fangu = angular.module('fangu',['ui.router'])
-    .config( function ($stateProvider, $urlRouteProvider) {
+var fangu = angular.module('fangu',['ui.router', 'fangu.services']);
+
+console.log('Fangu is up!', fangu);
+
+fangu.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
        $stateProvider
        .state('Analyze', {
            url: "/analyze",
@@ -10,5 +13,5 @@ var fangu = angular.module('fangu',['ui.router'])
             url: "/results",
             templateUrl: "partials/results.html",
             controller: 'ResultsController'
-        })
-    });
+        });
+    }]);
