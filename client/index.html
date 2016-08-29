@@ -1,11 +1,17 @@
 <DOCTYPE !HTML>
-<html>
+<html ng-app="fangu">
     <head>
         <script src="../bower_components/angular.js"></script>
+        <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="app.js"></script>
     </head>
         <body>
             Such body!
-            <div class="fanguApp"></div> //WOW! 
+            <div ui-view></div>
+            <ul>
+                <li><ui-sref="analyze">Read robot, read!</a></li>
+                <li><ui-sref="results">Show me my results, dirty robot!</a></li>
+            </ul>
         </body>
 </html>
     
