@@ -27,7 +27,7 @@ var addText = (req, res, next) => {
         if (r) {
             help.getUrl(r);
             console.log('Making a new text entry with ', r);
-            new Link({url: r, status: 'Loading'}).save()
+            new Text({url: r, status: 'Loading'}).save()
             .then( d => res.json(d) );
         }
     })
