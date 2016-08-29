@@ -1,6 +1,6 @@
 ### node etc ###
-.un~
-
+*~
+*.sw?
 # Logs
 logs
 *.log

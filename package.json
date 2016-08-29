@@ -4,7 +4,9 @@
   "description": "Fangu saves the world and solves world hunger. Also, it can read.",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node fangu.js",
+    "dev": "nodemon fangu.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/DrawnWren/2016-07-mvp#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "mongoose": "^4.5.10"
   }
 }
