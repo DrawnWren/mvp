@@ -1,0 +1,19 @@
+{
+  "name": "fangu",
+  "version": "3.0.0",
+  "description": "Fangu saves the world and solves world hunger. Also, it can read.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrawnWren/2016-07-mvp.git"
+  },
+  "author": "Drew",
+  "license": "EPL-1.0",
+  "bugs": {
+    "url": "https://github.com/DrawnWren/2016-07-mvp/issues"
+  },
+  "homepage": "https://github.com/DrawnWren/2016-07-mvp#readme"
+}
