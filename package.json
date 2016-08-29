@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/DrawnWren/2016-07-mvp/issues"
   },
-  "homepage": "https://github.com/DrawnWren/2016-07-mvp#readme"
+  "homepage": "https://github.com/DrawnWren/2016-07-mvp#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
