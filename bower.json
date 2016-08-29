@@ -1,0 +1,20 @@
+{
+  "name": "fangu",
+  "description": "Fangu saves the world and solves world hunger. Also, it can read.",
+  "main": "client/index.html",
+  "authors": [
+    "Drew"
+  ],
+  "license": "EPL-1.0",
+  "homepage": "https://github.com/DrawnWren/2016-07-mvp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
