@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
         <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
         <script src="analysis/analysis.js"></script>
         <script src="results/results.js"></script>
         <script src="singleResult/singleResult.js"></script>
         <script src="services/services.js"></script>
         <script src="app.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
     </head>
         <body ng-app="fangu">
-            Such body!
-            <ul>
-                <li><a ui-sref="Analyze">Read robot, read!</a></li>
-                <li><a ui-sref="Results">Show me my results, dirty robot!</a></li>
-            </ul>
-            <div ui-view></div>
+            <md-nav-bar md-selected-nav-item="currentNavItem">
+              <md-nav-item md-nav-sref="Analyze" name="Analyze">Read, robot, read!</md-nav-item>
+              <md-nav-item md-nav-sref="Results" name="Results">Show me the pictures!</md-nav-item>
+            </md-nav-bar>
+        <div ui-view></div>
         </body>
 </html>
     

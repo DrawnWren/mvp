@@ -1,5 +1,11 @@
 <div class='SingleResult'>
     <h1> {{ data.url }}</h1>
+    <md-grid-list md-cols-sm="2" md-cols-md="4" md-cols-lg="8" md-cols-gt-lg="12" md-row-width="fit" md-row-height="4:3">
+        <md-grid-tile ng-repeat="entity in data.entities"> 
+            {{ entity.name }} <br> 
+            <iframe src='{{entity.gif}}' height='200' width='200'> 
+        </md-grid-tile>
+    </md-grid-list>
     <ul>
         <li ng-repeat="entity in data.entities"> {{ entity.name }}<iframe src='{{entity.gif}}' height='200' width='200'> </li>
     </ul>

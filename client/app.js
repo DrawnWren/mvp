@@ -1,5 +1,5 @@
 var fangu = angular.module('fangu',['ui.router', 'fangu.services', 'fangu.analysis',
-'fangu.results', 'fangu.singleResult']);
+'fangu.results', 'fangu.singleResult', 'ngMaterial']);
 
 console.log('Fangu is up!', fangu);
 
