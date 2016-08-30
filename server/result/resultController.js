@@ -11,8 +11,12 @@ exports.getAllResults = function (req, res, next) {
 }
 
 function takeTopFive (result) { 
+    result.entities = result.entities.filter( (e) => {
+        if (e.name.match(/[0-9]/)) return false;
+        else return true; 
+    });
     result.entities.sort( (b, a) => a.salience - b.salience );
-    result.entities = result.entities.slice(0, 5);
+    result.entities = result.entities.slice(0, 8);
     return result.entities;
 }
 function mergeTranslated(entities, translated) {
@@ -35,13 +39,18 @@ function makeEnglish (entities) {
     });
 };
 
+var isJapanese = function (str) {
+    return str.match(/[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e00-\u9faf\u3400-\u4dbf]/);
+};
+
 exports.getByUrlTopFive = function (url) {
     return new Promise( function(fulfill, reject) {
 
             Result.findOne({url: url}).then( (r) => {
                 var ent = takeTopFive(r.results);
+                console.log('Top entities: ', ent);
                 var result = {url: r.url, entities: ent};
-                if ( result.entities[0].metadata.wikipedia_url.match(/(http:\/\/ja\.)/) ) {
+                if ( result.entities.map( (e) => isJapanese(e.name) ).filter( a => a).length > 0 ) {
 
                     makeEnglish(result.entities).then(
                         (english) => {
@@ -51,7 +60,7 @@ exports.getByUrlTopFive = function (url) {
                         }
                     );
                 } else {
-
+                console.log('Results are ', result);
                 fulfill(result);
                 }
             });
