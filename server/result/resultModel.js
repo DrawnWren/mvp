@@ -3,7 +3,8 @@ mongoose.Promise = require('bluebird');
 
 //all you need is a String ... right?
 var ResultSchema = mongoose.Schema({
-    results: String,
+    results: {},
+    fullText: String,
     url: String
 });
 

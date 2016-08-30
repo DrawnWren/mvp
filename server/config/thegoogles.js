@@ -28,7 +28,6 @@ function readText (text) {
                     console.log('ERROR FROM GOOGLE, ' , err);
                     reject(err);
                 } else {
-                    console.log('Got this from Google: ', d);
                     fulfill(d);
                 }
             });
