@@ -1,7 +1,8 @@
 var google = require('googleapis');
 var creds = require('./creds.js');
 var language = google.language('v1beta1');
-
+var gCloud = require('google-cloud');
+var translate = gCloud.translate({key: creds.key});
 //returns a promise that will (hopefully) be fulfilled by the Google API
 function readText (text) {
     return new Promise( function(fulfill, reject) {
@@ -34,4 +35,18 @@ function readText (text) {
     });
 }
 
-module.exports = {readText: readText};
+function translateTexts (texts) {
+    return new Promise( function(fulfill, reject) {
+        console.log('Trying to translate ', texts);
+        translate.translate(texts, 'en', function (err, tra){
+            if (err) reject(err)
+            else {
+                console.log('Got translations : ', tra);
+                fulfill(tra);
+            }
+        });
+    });
+}
+
+
+module.exports = {readText: readText, translateTexts: translateTexts};

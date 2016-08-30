@@ -23,6 +23,8 @@
     "body-parser": "^1.15.2",
     "cheerio": "^0.22.0",
     "express": "^4.14.0",
+    "google-cloud": "^0.39.0",
+    "google-translate": "^1.0.6",
     "googleapis": "^12.4.0",
     "mongoose": "^4.5.10",
     "morgan": "^1.7.0",

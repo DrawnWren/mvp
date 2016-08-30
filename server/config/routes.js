@@ -25,7 +25,6 @@ module.exports = function (app, express) {
     app.get('/api/byId/:entityId/gifs', (req, res, next) => {
         textIdToTopFiveResult(req.params.entityId).then( (r) => {
             var pr = resultController.getTopFiveGifs(r);
-            console.log('PR is ', pr);
             pr.then( (d) => res.json(d) );
        });
     });

@@ -6,7 +6,7 @@ exports.getGifs = function (toSearch) {
     toSearch = toSearch.split(' ').join('+');
     toSearch = 'http://api.giphy.com/v1/gifs/translate?s=' + toSearch + '&api_key=' + creds.giphy;
     toSearch += '&rating=PG';
-    console.log('In giphy ', toSearch);
+
     return new Promise( function (fulfill, reject) {
         request.get(toSearch, (err, data) => { 
             if (err) reject(err) 
