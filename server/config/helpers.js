@@ -46,8 +46,12 @@ exports.getUrl = function (url) {
 
 exports.parseHtml = function (html) {
     return new Promise( function (fulfill, reject) {
-        let $ = cheerio.load(html);
+        let $ = cheerio.load(html, {xmlMode: false});
+        $('script').remove();
         var texts = $('body').text(); //might return all the text elements
+        texts = texts.replace(/(\r\n|\n|\r)/gm," ");
+        texts = texts.replace(/(?:\b\S{1,2}\b\s*)+/gm, "");
+        console.log('Text is , ', texts); 
         fulfill(texts);
     });
 };

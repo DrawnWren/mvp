@@ -6,7 +6,7 @@ var language = google.language('v1beta1');
 function readText (text) {
     return new Promise( function(fulfill, reject) {
         console.log('About to make a document.');
-        var doc = {language: 'EN', 
+        var doc = { 
             type: 'PLAIN_TEXT', content: text};
 
         var googReq = {
@@ -28,7 +28,6 @@ function readText (text) {
                     console.log('ERROR FROM GOOGLE, ' , err);
                     reject(err);
                 } else {
-                    console.log('Got this from Google: ', d);
                     fulfill(d);
                 }
             });
