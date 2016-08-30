@@ -1,5 +1,5 @@
 var Result = require('./resultModel.js');
-
+var giphy = require('../giphy/giphy.js');
 
 exports.getAllResults = function (req, res, next) {
     Result.find().then( (d) =>{
@@ -26,6 +26,17 @@ exports.getByUrlTopFive = function (url) {
         });
     });
 }
+exports.getTopFiveGifs = function (topFive) {
+    return new Promise(function (fulfill, reject) {
+        var results = topFive.entities.map( (el) => { 
+            giphy.getGifs(el.name)
+                .then( (d) => el.gifs = d.data ); 
+        }); 
+        Promise.all(results)
+            .then( (d) => fulfill(el) )
+            .catch( (e) => reject(e) );
+    }); 
+}
 
 exports.getResultById = function (req, res, next) {
     console.log('In result by ID for id ', req.params.entityId);
@@ -38,4 +49,3 @@ exports.getResultById = function (req, res, next) {
     })
     .catch( e => next(e) );
 }; 
-
