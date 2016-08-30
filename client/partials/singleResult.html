@@ -1,6 +1,10 @@
 <div class='SingleResult'>
+    <h1> {{ data.url }}</h1>
+    <ul>
+        <li ng-repeat="entity in data.entities"> {{ entity.name }} </li>
+    </ul>
     <pre>
-    {{ data.url }} : {{ data.results }}
+    {{ data.url }} : {{ data.entities }}
     </pre>
 </div>
 

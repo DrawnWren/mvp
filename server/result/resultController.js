@@ -9,7 +9,7 @@ exports.getAllResults = function (req, res, next) {
 }
 
 function takeTopFive (result) { 
-    result.entities.sort( (a, b) => a.salience - b.salience );
+    result.entities.sort( (b, a) => a.salience - b.salience );
     result.entities = result.entities.slice(0, 5);
     console.log(result.entities);
     return result.entities;

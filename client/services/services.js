@@ -25,7 +25,10 @@ angular.module('fangu.services', [])
         return $http({
             method: 'GET',
             url: qUrl
-        }).then( d => d.data);
+        }).then( d => {
+            console.log(d.data);
+            return d.data;
+        });
     };
 
     var getShort = function () {
