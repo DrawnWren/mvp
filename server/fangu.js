@@ -8,7 +8,7 @@ require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 
 
-mongoose.connect('mongodb://localhost/shortly');
+mongoose.connect('mongodb://localhost/fangu');
 
 app.listen(8080);
 

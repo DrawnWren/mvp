@@ -11,12 +11,12 @@ var byTitleMiddleware = (req, res, next) => {
 };
 
 var addText = (req, res, next) => {
-    Text.find({url: req.body.url}).then( (r) => { 
+    Text.findOne({url: req.body.url}).then( (r) => { 
         //If the url is already in the database, return a trimmed item to be 
         //used on the front end
-        if (r.length > 0) {
+        if (r) {
             console.log('Found an already existing item', r);
-            r = {status: r.status, url: r.url, title: r.title};
+            //r = {status: r.status, url: r.url, title: r.title};
             res.json(r);
         } else {
             return req.body.url;
