@@ -16,12 +16,20 @@ function textIdToTopFiveResult (entityId) {
 
 module.exports = function (app, express) {
     app.get('/', (req, res) => res.sendFile( path.join( __dirname, '../../client/index.html') ) ); //so fancy
+    
     app.get('/api/byId/:entityId', function (req, res, next) {  
        textIdToTopFiveResult(req.params.entityId).then( (r) => res.json(r) )
         .catch( (e) => next(e) );
     });
+
     app.get('/api/byId/:entityId/gifs', (req, res, next) => {
+        textIdToTopFiveResult(req.params.entityId).then( (r) => {
+            var pr = resultController.getTopFiveGifs(r);
+            console.log('PR is ', pr);
+            pr.then( (d) => res.json(d) );
+       });
     });
+
     app.post('/api/analysis', textController.addText); 
     app.get('/api/analysis/short', textController.findTitlesAndStatus);
     app.get('/api/analysis', resultController.getAllResults); 

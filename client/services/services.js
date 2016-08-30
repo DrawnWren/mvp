@@ -21,7 +21,7 @@ angular.module('fangu.services', [])
       };
       
     var getById = function (id) {
-        var qUrl = '/api/byId/' + id;
+        var qUrl = '/api/byId/' + id + '/gifs';
         return $http({
             method: 'GET',
             url: qUrl
