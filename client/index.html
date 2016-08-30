@@ -1,8 +1,7 @@
-<DOCTYPE !HTML>
+<!DOCTYPE html>
 <html>
     <head>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-route.js"></script>
         <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
         <script src="analysis/analysis.js"></script>
         <script src="services/services.js"></script>
@@ -10,11 +9,11 @@
     </head>
         <body ng-app="fangu">
             Such body!
-            <div ui-view></div>
             <ul>
-                <li><ui-sref="Analyze">Read robot, read!</a></li>
-                <li><ui-sref="Results">Show me my results, dirty robot!</a></li>
+                <li><a ui-sref="Analyze">Read robot, read!</a></li>
+                <li><a ui-sref="Results">Show me my results, dirty robot!</a></li>
             </ul>
+            <div ui-view></div>
         </body>
 </html>
     
