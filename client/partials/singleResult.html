@@ -1,7 +1,7 @@
 <div class='SingleResult'>
     <h1> {{ data.url }}</h1>
     <ul>
-        <li ng-repeat="entity in data.entities"> {{ entity.name }} </li>
+        <li ng-repeat="entity in data.entities"> {{ entity.name }}<iframe src='{{entity.gif}}' height='200' width='200'> </li>
     </ul>
     <pre>
     {{ data.url }} : {{ data.entities }}

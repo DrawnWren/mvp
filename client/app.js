@@ -3,9 +3,9 @@ var fangu = angular.module('fangu',['ui.router', 'fangu.services', 'fangu.analys
 
 console.log('Fangu is up!', fangu);
 
-fangu.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+fangu.config(['$stateProvider', '$urlRouterProvider', '$sceProvider', function ($stateProvider, $urlRouterProvider, $sceProvider) {
     $urlRouterProvider.otherwise('/home');
-
+    $sceProvider.enabled(false);
        $stateProvider
        .state('Home', {
            url: '/home',
