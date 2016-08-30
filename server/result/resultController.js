@@ -8,19 +8,19 @@ exports.getAllResults = function (req, res, next) {
     .catch( (e) => next(e) );
 }
 
-function takeTopFive (result) {
-    console.log('Result entities is ', result.entities);
-    result.entities.sortBy( (a, b) => a.salience - b.salience );
+function takeTopFive (result) { 
+    result.entities.sort( (a, b) => a.salience - b.salience );
     result.entities = result.entities.slice(0, 5);
+    console.log(result.entities);
     return result.entities;
 }
 
 exports.getByUrlTopFive = function (url) {
-    console.log('Url in Results is ', url);
     return new Promise( function(fulfill, reject) {
             Result.findOne({url: url}).then( (r) => {
-            console.log('Results r is ', r);
-            var ent = takeTopFive(r);
+            console.log('Results r.results is ', r.results[0]);
+            console.log('Typeof r is ', typeof r.results);
+            var ent = takeTopFive(r.results);
             var result = {url: r.url, entities: ent};
             fulfill(result);
         });
