@@ -4,6 +4,8 @@ var help = require('../config/helpers.js');
 //yay middleware
 var findByTitle = (title) => Text.find({title: title});
 
+var getById = (id) => Text.findById(id);
+
 var byTitleMiddleware = (req, res, next) => {
     var title = req.body.title;
     findByTitle(title).then( (d) => res.json(d) )
@@ -36,7 +38,7 @@ var addText = (req, res, next) => {
 
 var findTitlesAndStatus = (req, res, next) => {
     console.log('In FT&S');
-    Text.find().select('url status')
+    Text.find().select('id url status')
         .then(d => {
             console.log('Returning titles and statuses: ', d);
             res.send(d);
@@ -50,6 +52,7 @@ var findAll = (req, res, next) => {
 }
 
 module.exports = {
+    getById: getById,
     findByTitle: byTitleMiddleware,
     findAll: findAll,
     findTitlesAndStatus: findTitlesAndStatus,
