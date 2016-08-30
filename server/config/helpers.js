@@ -1,6 +1,7 @@
 var request = require('request');
 var cheerio = require('cheerio');
-var key = require('./creds.js');
+var thegoogles = require('./thegoogles.js');
+var Result = require('../result/resultModel.js');
 
 exports.getAnal = function (req, res) {
     return "Analyze this!";
@@ -17,6 +18,7 @@ exports.getUrl = function (url) {
                 exports.readText(text).then( 
                     (d) => { 
                         console.log(d); //presents go here 
+                        new Result({results: d, url: url}).save();
                     });
                 });
             }
@@ -32,33 +34,5 @@ exports.parseHtml = function (html) {
 };
 
 exports.readText = function (text) {
-    let body = {
-        document: {
-        type: 'PLAIN_TEXT',
-        lang: 'EN',
-        content: text,
-        encodingType: 'UTF16'
-        }
-    };
-
-    return new Promise(function (fulfill, reject) {
-        request({
-            method: 'POST',
-            uri: 'https://language.googleapis.com/v1beta1/documents:analyzeEntities',
-            multipart: [{'content-type': 'application/json',
-                key: key,
-                body: body}]
-        }, function (err, res, body) {
-            console.log('Request executed at all.');
-            if (err) {
-                console.log('POST to google failed, like you expected, ', err);
-                reject(err);
-            }
-            else {
-                console.log('Got an actual response from google,', res);
-                fulfill(res);
-            }
-        });
-    });
-
+    thegoogles.readText(text);
 };
