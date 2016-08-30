@@ -6,7 +6,8 @@ angular.module('fangu.services', [])
               method: 'POST',
               url: '/api/analysis',
               data: {url: url}
-          });
+          }).then( d => console.log(d) )
+          .catch( e => console.log('Error! ', e) );
       };
 
       return {analyze: analyzeThis};
@@ -18,7 +19,14 @@ angular.module('fangu.services', [])
               url: '/api/analysis',
           }).then( d => d.data );
       };
+    var getShort = function () {
+        return $http({
+            method: 'GET',
+            url: '/api/analysis/short'
+    }).then( d => d.data );
+    };
 
-    return {getResults: getResults};
+    return {getResults: getResults,
+    getShort: getShort};
 
   });

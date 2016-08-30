@@ -34,6 +34,16 @@ var addText = (req, res, next) => {
     .catch( e => next(e) );
 };
 
+var findTitlesAndStatus = (req, res, next) => {
+    console.log('In FT&S');
+    Text.find().select('url status')
+        .then(d => {
+            console.log('Returning titles and statuses: ', d);
+            res.send(d);
+        });
+};
+
+
 var findAll = (req, res, next) => {
     Text.find().then( (d) => res.json(d) )
     .catch( (e) => next(e) );
@@ -42,5 +52,6 @@ var findAll = (req, res, next) => {
 module.exports = {
     findByTitle: byTitleMiddleware,
     findAll: findAll,
+    findTitlesAndStatus: findTitlesAndStatus,
     addText: addText
 }
