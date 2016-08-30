@@ -2,7 +2,7 @@
     <h1> Probably actually the results </h1>
     <pre>
         <div ng-repeat="result in data">
-            {{ result.url }} : {{ result.status }}
+            <a  ui-sref="ResultById({resultId: '{{result._id}}' })">{{ result.url }} : {{ result.status }}</a>
         </div>
     </pre>
 </div>

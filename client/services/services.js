@@ -19,6 +19,15 @@ angular.module('fangu.services', [])
               url: '/api/analysis',
           }).then( d => d.data );
       };
+      
+    var getById = function (id) {
+        var qUrl = '/api/byId/' + id;
+        return $http({
+            method: 'GET',
+            url: qUrl
+        }).then( d => d.data);
+    };
+
     var getShort = function () {
         return $http({
             method: 'GET',
@@ -27,6 +36,7 @@ angular.module('fangu.services', [])
     };
 
     return {getResults: getResults,
-    getShort: getShort};
+    getShort: getShort,
+    getById: getById};
 
   });
