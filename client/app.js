@@ -3,6 +3,12 @@ var fangu = angular.module('fangu',['ui.router', 'fangu.services', 'fangu.analys
 
 console.log('Fangu is up!', fangu);
 
+fangu.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('orange')
+    .accentPalette('grey');
+});
+
 fangu.config(['$stateProvider', '$urlRouterProvider', '$sceProvider', function ($stateProvider, $urlRouterProvider, $sceProvider) {
     $urlRouterProvider.otherwise('/home');
     $sceProvider.enabled(false);

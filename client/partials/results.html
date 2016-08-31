@@ -1,8 +1,14 @@
 <div id='results'>
     <h1> Probably actually the results </h1>
-    <pre>
-        <div ng-repeat="result in data">
-            <a  ui-sref="ResultById({resultId: '{{result._id}}' })">{{ result.url }} : {{ result.status }}</a>
-        </div>
-    </pre>
+    <md-list>
+        <md-list-item ng-repeat="result in data">
+            <div ng-if="result.status === 'Loading'">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <div ng-if="result.status === 'Finished'">
+
+            </div>
+            <h3  ui-sref="ResultById({resultId: '{{result._id}}' })">{{ result.url }} </h3>
+        </md-list-item>
+    </md-list>
 </div>

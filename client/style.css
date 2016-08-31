@@ -1,7 +1,4 @@
-li {
-        width: 200px;
-        min-height: 250px;
-        border: 1px solid #000;
-        display: inline-block;
-        margin: 5px;
-}
+iframe {
+border:0px 
+solid white; 
+overflow:hidden;} 
